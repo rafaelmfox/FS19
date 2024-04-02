@@ -14,6 +14,11 @@ namespace FS19
 {
     public partial class Form1 : Form
     {
+        public string farmName; 
+        public string farmId;
+        public string money; 
+                               
+
         public Form1()
         {
             InitializeComponent();
@@ -38,7 +43,8 @@ namespace FS19
                 {
                     if (subDirectory.ToLower().Contains("savegame"))
                     {
-                        comboBox.Items.Add(subDirectory);
+                        string folderName = Path.GetFileName(subDirectory); // Obtém apenas o nome da pasta
+                        comboBox.Items.Add(folderName); // Adiciona o nome da pasta à ComboBox
                     }
 
                     ListSaveGameFolders(subDirectory, comboBox);
@@ -69,7 +75,7 @@ namespace FS19
 
             if (cbSaveGame.SelectedItem != null)
             {
-                string selectedDirectory = cbSaveGame.SelectedItem.ToString();
+                string selectedDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "My Games", "FarmingSimulator2019", cbSaveGame.SelectedItem.ToString());
                 LoadFarmXmlFile(selectedDirectory);
             }
             else
@@ -97,12 +103,14 @@ namespace FS19
                     if (farmNode != null)
                     {
                         // Pegar os valores dos atributos 'name' e 'farmId'
-                        string farmName = farmNode.Attributes["name"].Value;
-                        string farmId = farmNode.Attributes["farmId"].Value;
+                        farmName = farmNode.Attributes["name"].Value;
+                        farmId = farmNode.Attributes["farmId"].Value;
+                        money = farmNode.Attributes["money"].Value;
 
                         // Exibir os valores na label
                         lblNomeSave.Text = "Nome da Fazenda: " + farmName;
-                       
+                        txtFarmMoney.Text = money;
+
                     }
                     else
                     {
