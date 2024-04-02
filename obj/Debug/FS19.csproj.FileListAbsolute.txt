@@ -1,0 +1,10 @@
+C:\Users\camaleao\source\repos\FS19\bin\Debug\FS19.exe.config
+C:\Users\camaleao\source\repos\FS19\bin\Debug\FS19.exe
+C:\Users\camaleao\source\repos\FS19\bin\Debug\FS19.pdb
+C:\Users\camaleao\source\repos\FS19\obj\Debug\FS19.csproj.AssemblyReference.cache
+C:\Users\camaleao\source\repos\FS19\obj\Debug\FS19.Form1.resources
+C:\Users\camaleao\source\repos\FS19\obj\Debug\FS19.Properties.Resources.resources
+C:\Users\camaleao\source\repos\FS19\obj\Debug\FS19.csproj.GenerateResource.cache
+C:\Users\camaleao\source\repos\FS19\obj\Debug\FS19.csproj.CoreCompileInputs.cache
+C:\Users\camaleao\source\repos\FS19\obj\Debug\FS19.exe
+C:\Users\camaleao\source\repos\FS19\obj\Debug\FS19.pdb
