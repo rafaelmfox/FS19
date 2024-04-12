@@ -72,15 +72,26 @@ namespace FS19
 
         private void btnCarregar_Click(object sender, EventArgs e)
         {
+            //MessageBox.Show(tbControle.SelectedIndex.ToString());
+
 
             if (cbSaveGame.SelectedItem != null)
             {
                 string selectedDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "My Games", "FarmingSimulator2019", cbSaveGame.SelectedItem.ToString());
+
                 LoadFarmXmlFile(selectedDirectory);
+                LoadFarmlandXmlFile(selectedDirectory);
+                LoadEnvironmentXmlFile(selectedDirectory);
+                
+
+
+
+
+
             }
             else
             {
-                MessageBox.Show("Por favor, selecione um diretório antes de carregar o arquivo.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //MessageBox.Show("Por favor, selecione um diretório antes de carregar o arquivo.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
 
@@ -108,7 +119,7 @@ namespace FS19
                         money = farmNode.Attributes["money"].Value;
 
                         // Exibir os valores na label
-                        lblNomeSave.Text = "Nome da Fazenda: " + farmName;
+                        lblNomeSave.Text = "Save: " + farmName;
                         txtFarmMoney.Text = money;
 
                     }
@@ -128,7 +139,74 @@ namespace FS19
             }
         }
 
+        public void LoadFarmlandXmlFile(string directoryPath)
+        {
+            try
+            {
+                string farmsXmlPath = Path.Combine(directoryPath, "farmland.xml");
 
+                if (File.Exists(farmsXmlPath))
+                {
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.Load(farmsXmlPath);
+
+                    XmlNodeList farmlandNodes = xmlDoc.SelectNodes("/farmlands/farmland");
+
+                    if (farmlandNodes != null)
+                    {
+                        foreach (XmlNode node in farmlandNodes)
+                        {
+                            string farmId = node.Attributes["id"].Value;
+                            bool isChecked = (node.Attributes["farmId"] != null && node.Attributes["farmId"].Value == "1");
+                            cbListaDeFarm.Items.Add("ID" + farmId, isChecked); // Adiciona o ID à CheckedListBox com o status de checagem
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Nenhum farmland encontrado no arquivo farmland.xml.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("O arquivo farmland.xml não foi encontrado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ocorreu um erro ao carregar o arquivo farmland.xml: {ex.Message}");
+            }
+        }
+
+        public void LoadEnvironmentXmlFile(string directoryPath)
+        {
+            try
+            {
+                string environmentXmlPath = Path.Combine(directoryPath, "environment.xml");
+
+                if (File.Exists(environmentXmlPath))
+                {
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.Load(environmentXmlPath);
+
+                    XmlNode environmentNode = xmlDoc.SelectSingleNode("/environment");
+                    if (environmentNode != null)
+                    {
+                        XmlNode currentDayNode = environmentNode.SelectSingleNode("currentDay");
+                        if (currentDayNode != null)
+                        {
+                            string currentDayValue = currentDayNode.InnerText; // Obtenha o valor do elemento currentDay
+                            lblNomeSave.Text = lblNomeSave.Text + " -Dia: " + currentDayValue;
+                        }
+                    }
+                }
+     
+
+            }
+            catch (Exception ex)
+            {
+               
+            }
+        }
 
 
 

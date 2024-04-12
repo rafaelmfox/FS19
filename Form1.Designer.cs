@@ -30,14 +30,10 @@
         {
             this.lblNomeSave = new System.Windows.Forms.Label();
             this.cbSaveGame = new System.Windows.Forms.ComboBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabFarm = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnCarregar = new System.Windows.Forms.Button();
-            this.lblMoney = new System.Windows.Forms.Label();
             this.txtFarmMoney = new System.Windows.Forms.TextBox();
-            this.tabControl1.SuspendLayout();
-            this.tabFarm.SuspendLayout();
+            this.lblMoney = new System.Windows.Forms.Label();
+            this.btnCarregar = new System.Windows.Forms.Button();
+            this.cbListaDeFarm = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // lblNomeSave
@@ -59,42 +55,28 @@
             this.cbSaveGame.Size = new System.Drawing.Size(267, 24);
             this.cbSaveGame.TabIndex = 1;
             // 
-            // tabControl1
+            // txtFarmMoney
             // 
-            this.tabControl1.Controls.Add(this.tabFarm);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(15, 60);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(515, 412);
-            this.tabControl1.TabIndex = 2;
+            this.txtFarmMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtFarmMoney.Location = new System.Drawing.Point(75, 60);
+            this.txtFarmMoney.Name = "txtFarmMoney";
+            this.txtFarmMoney.Size = new System.Drawing.Size(207, 22);
+            this.txtFarmMoney.TabIndex = 5;
             // 
-            // tabFarm
+            // lblMoney
             // 
-            this.tabFarm.Controls.Add(this.txtFarmMoney);
-            this.tabFarm.Controls.Add(this.lblMoney);
-            this.tabFarm.Location = new System.Drawing.Point(4, 22);
-            this.tabFarm.Name = "tabFarm";
-            this.tabFarm.Padding = new System.Windows.Forms.Padding(3);
-            this.tabFarm.Size = new System.Drawing.Size(507, 386);
-            this.tabFarm.TabIndex = 0;
-            this.tabFarm.Text = "Farm";
-            this.tabFarm.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(507, 386);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.lblMoney.AutoSize = true;
+            this.lblMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMoney.Location = new System.Drawing.Point(12, 63);
+            this.lblMoney.Name = "lblMoney";
+            this.lblMoney.Size = new System.Drawing.Size(57, 16);
+            this.lblMoney.TabIndex = 4;
+            this.lblMoney.Text = "Money:";
             // 
             // btnCarregar
             // 
             this.btnCarregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnCarregar.Location = new System.Drawing.Point(15, 474);
+            this.btnCarregar.Location = new System.Drawing.Point(12, 251);
             this.btnCarregar.Name = "btnCarregar";
             this.btnCarregar.Size = new System.Drawing.Size(97, 42);
             this.btnCarregar.TabIndex = 3;
@@ -102,39 +84,29 @@
             this.btnCarregar.UseVisualStyleBackColor = true;
             this.btnCarregar.Click += new System.EventHandler(this.btnCarregar_Click);
             // 
-            // lblMoney
+            // cbListaDeFarm
             // 
-            this.lblMoney.AutoSize = true;
-            this.lblMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMoney.Location = new System.Drawing.Point(6, 18);
-            this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(57, 16);
-            this.lblMoney.TabIndex = 4;
-            this.lblMoney.Text = "Money:";
-            // 
-            // txtFarmMoney
-            // 
-            this.txtFarmMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtFarmMoney.Location = new System.Drawing.Point(69, 15);
-            this.txtFarmMoney.Name = "txtFarmMoney";
-            this.txtFarmMoney.Size = new System.Drawing.Size(194, 22);
-            this.txtFarmMoney.TabIndex = 5;
+            this.cbListaDeFarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbListaDeFarm.FormattingEnabled = true;
+            this.cbListaDeFarm.Location = new System.Drawing.Point(15, 88);
+            this.cbListaDeFarm.Name = "cbListaDeFarm";
+            this.cbListaDeFarm.Size = new System.Drawing.Size(267, 157);
+            this.cbListaDeFarm.TabIndex = 6;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 527);
+            this.ClientSize = new System.Drawing.Size(394, 362);
+            this.Controls.Add(this.cbListaDeFarm);
             this.Controls.Add(this.btnCarregar);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.txtFarmMoney);
+            this.Controls.Add(this.lblMoney);
             this.Controls.Add(this.cbSaveGame);
             this.Controls.Add(this.lblNomeSave);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tabFarm.ResumeLayout(false);
-            this.tabFarm.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,12 +116,10 @@
 
         private System.Windows.Forms.Label lblNomeSave;
         private System.Windows.Forms.ComboBox cbSaveGame;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabFarm;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnCarregar;
         private System.Windows.Forms.TextBox txtFarmMoney;
         private System.Windows.Forms.Label lblMoney;
+        private System.Windows.Forms.CheckedListBox cbListaDeFarm;
     }
 }
 
